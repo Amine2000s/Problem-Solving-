@@ -1,0 +1,42 @@
+public class alcpc {
+	
+	public static void main(String[]args) {
+		
+				Scanner input = new Scanner(System.in);
+				
+				 String name = input.next();
+				 
+				 char[] actualname = name.toCharArray() ;
+				 
+				 int moves = 0 ; 
+				 
+				 int start = 0 ;
+				 
+				 for(int i = 0 ; i < actualname.length ; i++) {
+					 
+					int n = actualname[i] - 97 ;
+					
+					int space = Math.abs( start - n );
+					
+					if(space < 13) {
+						
+						moves += space ; 
+						
+					}else {
+						
+						moves += (26-space) ; 
+						
+					}
+					
+					start = n ; 
+				 
+				 }
+				
+				 System.out.println(moves);
+				 
+				 
+			input.close();
+	}
+	
+}
+
