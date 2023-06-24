@@ -1,0 +1,43 @@
+package acpc;
+
+import java.io.*;
+import java.util.Date.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+       
+    	Scanner in = new Scanner(System.in); 
+    	
+    	//String plus = "X++";
+    	//String minus ="X--";
+    	
+    	int n = in.nextInt();
+    	 in.nextLine();
+    	int s =0;
+    	for(int i =0;i<n;i++) {
+    		String tmp = in.nextLine();
+    		if(containt(tmp,'+')==true) {
+    			s+=1;
+    		}else {s-=1;}
+    		/*if(containt(tmp,'-')==true) {
+    			
+    		}*/
+    	}
+    	System.out.println(s);
+    	}
+    
+    public static boolean containt(String s,char x) {
+    	for(int i=0;i<s.length();i++) {
+    		if(s.charAt(i)==x)
+    	    	//System.out.println((s.charAt(i)==x));
+
+    			return true;
+    	}
+    	return false ; 
+    }
+    	
+       
+}     
+    
