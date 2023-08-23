@@ -1,0 +1,126 @@
+import com.sun.source.tree.ContinueTree;
+
+import java.util.*;
+import java.io.*;
+
+public class Main {
+    static class FastReader {
+        BufferedReader br;
+        StringTokenizer st;
+
+        public FastReader() {
+            br = new BufferedReader(new InputStreamReader(System.in));
+        }
+
+        String next() {
+            while (st == null || !st.hasMoreTokens()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
+
+        long nextLong() {
+            return Long.parseLong(next());
+        }
+
+        double nextDouble() {
+            return Double.parseDouble(next());
+        }
+
+        String nextLine() {
+            String str = "";
+            try {
+                str = br.readLine().trim();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
+    }
+
+    static class FastWriter {
+        private final BufferedWriter bw;
+
+        public FastWriter() {
+            this.bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        }
+
+        public void print(Object object) throws IOException {
+            bw.append("" + object);
+        }
+
+        public void println(Object object) throws IOException {
+            print(object);
+            bw.append("\n");
+        }
+
+        public void close() throws IOException {
+            bw.close();
+        }
+
+
+    }
+
+    public static FastReader in;
+    public static FastWriter out;
+
+    public static void main(String[] args) {
+
+
+        try {
+            ///double t = System.nanoTime();
+            in = new FastReader();
+            out = new FastWriter();
+
+            long a = in.nextLong();
+            long b = in.nextLong();
+            long m = in.nextLong();
+
+            //long x = ;
+            System.out.println(sol(a,b,m));
+            out.close();
+
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
+
+    public static long multi(long a , long b,long m ){
+
+        return ((a%m)*(b%m))%m;
+
+
+    }
+    public static int sol(long a , long b ,long m){
+        if(b==0)return 1 ;
+        int result = 1 ;
+
+        //for(int i=0 ; i< b ;i++){
+        /*if(b % 2==0)    result =(int) multi(sol(a,b/2,m),sol(a,b/2,m),m);
+        //}
+        if(b % 2 ==1) result =(int) multi(sol(a,b-1,m),a,m);
+        */
+        while(b>0){
+            if(b%2==1) result = (int)multi(result,a,m);
+            a = multi(a,a,m);
+            b/=2;
+        }
+        return result;
+
+       // return result ;
+
+
+    }
+}
