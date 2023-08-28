@@ -1,0 +1,148 @@
+import com.sun.source.tree.ContinueTree;
+
+import java.util.*;
+import java.io.*;
+//daaaaaaaanh hasing is so sos opowerful
+public class Main {
+    static class FastReader {
+        BufferedReader br;
+        StringTokenizer st;
+
+        public FastReader() {
+            br = new BufferedReader(new InputStreamReader(System.in));
+        }
+
+        String next() {
+            while (st == null || !st.hasMoreTokens()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
+
+        long nextLong() {
+            return Long.parseLong(next());
+        }
+
+        double nextDouble() {
+            return Double.parseDouble(next());
+        }
+
+        String nextLine() {
+            String str = "";
+            try {
+                str = br.readLine().trim();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
+    }
+
+    static class FastWriter {
+        private final BufferedWriter bw;
+
+        public FastWriter() {
+            this.bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        }
+
+        public void print(Object object) throws IOException {
+            bw.append("" + object);
+        }
+
+        public void println(Object object) throws IOException {
+            print(object);
+            bw.append("\n");
+        }
+
+        public void close() throws IOException {
+            bw.close();
+        }
+
+
+    }
+
+    public static FastReader in;
+    public static FastWriter out;
+
+    //public static long []arrn  ;
+    public static long[] occur;
+    // public static long []arrm ;
+
+    public static void main(String[] args) {
+
+
+        try {
+            ///double t = System.nanoTime();
+            in = new FastReader();
+            out = new FastWriter();
+            int n = in.nextInt();
+            String[] nstr = in.nextLine().split(" ");
+            int m = in.nextInt();
+            String[] mstr = in.nextLine().split(" ");
+            occur = new long[m];
+
+            Map<String, Integer> wordCountMap = new HashMap<>();
+
+            // Count occurrences of words in nstr array
+            for (String word : nstr) {
+                wordCountMap.put(word, wordCountMap.getOrDefault(word, 0) + 1);
+            }
+
+            // Count occurrences of words from mstr array in nstr array
+            for (String word : mstr) {
+                int count = wordCountMap.getOrDefault(word, 0);
+                out.println(count); // Print the count of occurrences
+            }
+            /*Map<String,Integer> indmaxp = new HashMap<>();
+            for(String word : mstr){
+                indmaxp.put(word,indmaxp.getOrDefault(word,0));
+            }
+            for(String word : nstr){
+                out.println(indmaxp.getOrDefault(word,0));  */
+
+        //int j =0 ;
+           /* for(int i=0 ; i<m;i++){
+                for(int j = 0 ; j<n;j++){
+                    if(nstr[j].equals(mstr[i])){
+                        occur[i]++;
+                    }
+
+                }
+                out.println(occur[i]);
+                //occur[Integer.parseInt(nstr[i])]++;
+            }*/
+
+            /*String s[] = new String[m];
+            int i=0;
+            for (String v : s) {
+                v=String.valueOf(occur[i]);i++;out.println(v);
+            }*/
+
+        //double x = Math.pow(n,2);
+        // double x= (n*n)+ Math.sqrt(n);
+        //out.print(x);
+
+
+        out.close();
+
+        //7 3 4 2 5
+    } catch(
+    IOException e)
+
+    {
+        throw new RuntimeException(e);
+    }
+}
+
+    }
+
+
+
