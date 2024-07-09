@@ -1,0 +1,48 @@
+import java.sql.SQLOutput;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        /** thought process
+         *
+         * either its all uppercase or all lowercase , so first of all , we need to
+         * count which number of alphabets is biiger and bassed on that either we substract or add 32
+         * greate then 90 -> lower case  , less then 90 -w upper case
+         * */
+        Scanner in = new Scanner(System.in) ;
+
+        String word = in.next();
+
+        System.out.print(new Solver().solve(word));
+
+
+    }
+    static class Solver {
+        public static String solve(String input ){
+            char[] chararry = input.toCharArray();
+            //System.out.println("here is the array value "+String.valueOf(chararry));
+            int uppercase = 0, lowercase = 0;
+            for(int i =0 ; i < chararry.length ; i++){
+
+                if((int)chararry[i] >90) lowercase++ ;
+                if((int)chararry[i] <=90) uppercase++ ;
+
+            }
+
+            if(lowercase >= uppercase ){
+                    for(int i =0 ; i < chararry.length ; i++) {
+                        if((int)chararry[i] <=90)
+                        chararry[i] = (char) (((int) chararry[i]) + 32);
+                    }
+            }else{
+                    for(int i =0 ; i < chararry.length ; i++) {
+                        if((int)chararry[i] >90)
+                        chararry[i] = (char) (((int) chararry[i]) - 32);
+                    }
+
+            }
+                return String.valueOf(chararry);
+
+        }
+    }
+}

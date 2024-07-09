@@ -23,7 +23,7 @@ public class Main {
     static class Solver {
         public static int solve(int bananaPrice , int initialmoney , int nbBanana ){
             int sum = nbBanana * (nbBanana+1) / 2 ;
-
+main 
             int totalprice = sum * bananaPrice ;
 
             int res = totalprice < initialmoney ? 0 : totalprice-initialmoney ;
