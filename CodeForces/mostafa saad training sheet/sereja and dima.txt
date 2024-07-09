@@ -1,0 +1,55 @@
+import java.util.*;
+
+public class problem {
+	
+	public static  int get_max(ArrayList <Integer> list ) {
+				int max = 0 ; 
+				for(int i=0 ; i< list.size() ; i++) {
+					if(list.get(i) > max ) {
+						max = list.get(i) ;
+					}
+				}
+				
+				list.remove(list.indexOf(max));
+				
+				return max ;
+		}
+	
+	    public static void main(String[] args) {
+	        
+	        Scanner input = new Scanner(System.in);
+	       
+	        int n = input.nextInt();
+	        
+	        ArrayList <Integer> list_of_cards = new ArrayList <>() ;
+	        
+	        int sereja , dima ; //sereja first , dima second 
+	        
+	        sereja = dima = 0 ; 
+	        
+	        for(int i = 0 ; i < n ; i++) {
+	        	list_of_cards.add(input.nextInt());
+	        }
+	        
+	        for(int i = 1 ; i <= n ; i++) {
+	        	int max = get_max(list_of_cards);
+	        	
+	        	if(i % 2 != 0)
+	        		sereja += max;
+	        	if(i % 2 == 0)
+	        		dima += max; 
+	        	
+	        	
+	        }
+	        
+	        
+	        System.out.println( sereja +" " + dima );
+	        
+	        
+	        
+	       
+	        input.close();
+	    }
+	    
+	}
+
